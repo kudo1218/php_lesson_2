@@ -24,21 +24,12 @@
     }else{
       $fizz = $_POST[fizz];
       $buzz = $_POST[buzz];
-      for($i=0; $i<=99; $i++) {
-        $fizzResult = $fizzResult + $fizz;
-        $buzzResult = $buzzResult + $buzz;
-        if($fizzResult === $buzzResult) {
-          echo 'FizzBuzz' . $fizzResult . '<br>';
-        }else if($fizzResult > $buzzResult) {
-          echo 'Buzz' . $buzzResult . '<br>';
-          echo 'Fizz' . $fizzResult . '<br>';
-        }else{
-          echo 'Fizz' . $fizzResult . '<br>';
-          echo 'Buzz' . $buzzResult . '<br>';
-        }
-        if($fizzResult > 99 || $buzzResult > 99){
-          break;
-        }
+      if(!preg_match("/[0-9]+$/",$fizz)){
+        echo '数字を入力してください';
+      }else if(!preg_match("/[0-9]+$/",$buzz)){
+        echo '数字を入力してください';
+      }else{
+        echo '正常';
       }
     }
   ?>
