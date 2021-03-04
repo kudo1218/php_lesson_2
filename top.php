@@ -18,19 +18,33 @@
     <input type="submit" value="実行">
   </form>
   <?php
-    echo '<h2>' .【出力】 . '</h2>';
-    if(empty($_POST[fizz] && $_POST[buzz])){
-      echo '値を入力してください。';
-    }else{
-      $fizz = $_POST[fizz];
-      $buzz = $_POST[buzz];
-      if(!preg_match("/[0-9]+$/",$fizz)){
-        echo '数字を入力してください';
-      }else if(!preg_match("/[0-9]+$/",$buzz)){
-        echo '数字を入力してください';
+    function fizzbuzz() {
+      echo '<h2>' .【出力】 . '</h2>';
+      if(empty($_POST[fizz] || $_POST[buzz])){
+        echo '値を入力してください。';
       }else{
-        echo '正常';
+        $fizz = $_POST[fizz];
+        $buzz = $_POST[buzz];
+        if(!preg_match("/[0-9]+$/",$fizz)){
+          echo '数字を入力してください';
+        }else if(!preg_match("/[0-9]+$/",$buzz)){
+          echo '数字を入力してください';
+        }else{
+          for($i = 0; $fizzResult < 99 && $buzzResult < 99; $i++) {
+            if($fizz % $fizz === 0) {
+              $fizzResult = $fizzResult + $fizz;
+              echo 'Fizz ' . $fizzResult . '<br>';
+            }
+            if(($buzz % $buzz === 0)) {
+              $buzzResult = $buzzResult + $buzz;
+              echo 'Buzz ' . $buzzResult . '<br>';
+            }
+          }
+        }
       }
+    }
+    if(!empty($_POST[fizz] && $_POST[buzz])) {
+      fizzbuzz();
     }
   ?>
   </body>
