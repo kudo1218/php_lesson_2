@@ -22,21 +22,18 @@
       $fizz = $_POST[fizz];
       $buzz = $_POST[buzz];
       echo '<h2>' .【出力】 . '</h2>';
-      if(empty($fizz || $buzz)){
-        echo '値を入力してください。';
-      }else if(!preg_match("/[0-9]/",$fizz) || !preg_match("/[0-9]/",$buzz)){
-        echo '数字を入力してください';
-      }else{
-        for($i = 0; $fizzResult < 99 && $buzzResult < 99; $i++) {
-          if($fizz % $fizz === 0) {
-            $fizzResult = $fizzResult + $fizz;
-            echo 'Fizz ' . $fizzResult . '<br>';
-          }
-          if(($buzz % $buzz === 0)) {
-            $buzzResult = $buzzResult + $buzz;
-            echo 'Buzz ' . $buzzResult . '<br>';
+      if(preg_match("/[0-9]/",$fizz) && preg_match("/[0-9]/",$buzz)){
+        for($i = 1; $i <= 99; $i++) {
+          if($i % $fizz === 0 && $i % $buzz === 0) {
+            echo 'FizzBuzz:' . $i . '<br>';
+          }else if($i % $fizz === 0) {
+            echo 'Fizz' . $i . '<br>';
+          }else if($i % $buzz === 0) {
+            echo 'Buzz' . $i . '<br>';
           }
         }
+      }else{
+        echo '整数値を入力してください';
       }
     }
     if(!empty($_POST[start])) {
