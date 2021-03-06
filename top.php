@@ -22,8 +22,8 @@
       $fizz = $_POST[fizz];
       $buzz = $_POST[buzz];
       echo '<h2>' .【出力】 . '</h2>';
-      if(preg_match("/[0-9]/",$fizz) && preg_match("/[0-9]/",$buzz)){
-        for($i = 1; $i <= 99; $i++) {
+      if(preg_match("/^[0-9]+$/",$fizz) && preg_match("/^[0-9]+$/",$buzz)){
+        for($i = 1; $i < 100; $i++) {
           if($i % $fizz === 0 && $i % $buzz === 0) {
             echo 'FizzBuzz:' . $i . '<br>';
           }else if($i % $fizz === 0) {
